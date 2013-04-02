@@ -1,0 +1,41 @@
+# 
+# ChangeLog for lcut
+#
+
+2012-04-13 Tony Bai <bigwhite.cn@gmail.com>
+    * fix the bug: when all cases run successfully, lcut exit with -1. 
+	* remove -Werror from top Makefile.am
+	* release lcut-0.3.0
+
+2012-04-10 Tony Bai <bigwhite.cn@gmail.com>
+    * release lcut-0.3.0 rc1
+    * add LCUT_ARG_RETURN_COUNT and LCUT_RETV_RETURN_COUNT
+    * add a new example: mock_test.c
+
+2010-12-21 Tony Bai <bigwhite.cn@gmail.com>
+    * add -fno-strict-aliasing to Makefile.am
+
+2010-12-17 Tony Bai <bigwhite.cn@gmail.com>
+    * no need to assign the suite variable to NULL when init another testsuite
+
+2010-12-10 Tony Bai <bigwhite.cn@gmail.com>
+	* add libtool support 
+      
+2010-12-09 Tony Bai <bigwhite.cn@gmail.com>
+	* remove the parameter n from LCUT_STR_NEQUAL
+	* fix the problem when pass NULL to LCUT_STR_EQUAL& LCUT_STR_NEQUAL
+	* add string_test.c
+	* refactor functions like lcut_int_equal
+
+2010-12-01 Tony Bai <bigwhite.cn@gmail.com>
+	* make the test report printed in color 
+	* fix the issue2 raised by Helight.Xu
+
+2010-11-03 Tony Bai <bigwhite.cn@gmail.com>
+	* add '-std=c99 -Wall -Werror' to CPPFLAGS
+
+2010-10-29 Tony Bai <bigwhite.cn@gmail.com>
+	* Add mock support
+
+2010-09-25 Tony Bai <bigwhite.cn@gmail.com>
+	* Version 0.1.0 released
