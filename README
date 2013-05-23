@@ -53,7 +53,8 @@ Feature list
    fixtures
  - provide mock support (inspired by cmockery)
 
-For more information, please open and read the lcut_user_guide.And Chinese version is here.
+For more information, please open and read the luct project wiki. lcut_user_guide and its Chinese version are ready 
+for you.
 
 Build
 ------
