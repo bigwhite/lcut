@@ -143,6 +143,12 @@ Build
  - configure->make->make install
  
 if you want to compile in 64-bit mode, pass "CPPFLAGS=-m64 LDFLAGS=-m64" to configure.
+sometimes, you may encounter such error:
+
+	mv: cannot stat `.deps/lcut.Tpo': No such file or directory
+	make[1]: *** [lcut.lo] Error 1
+	
+a solution for this is execute "libtoolize -f" before "configure".
 
 User Guide
 -------------
