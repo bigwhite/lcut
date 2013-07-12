@@ -28,18 +28,18 @@ lcut is short for "Lightweight C Unit Test framework". lightweight means it is v
 The framework is inspired by the well-known JUnit which is invented by Kent Beck.The structure of lcut could be 
 illustrated as below:
 
- A logical Test
-      |  
-      |  
- +-------------+
-TS-1    ...  TS-N
- |             |  
- |             |  
-+-------+ ... +--------+
+    A logical Test
+          |  
+          |  
+      +-------------+
+      TS-1    ...  TS-N
+      |             |  
+      |             |  
+    +-------+ ... +--------+
+    TC-1 TC-N TC-1 TC-N
+    
+    TS - Test Suite，TC - Test Case
 
-TC-1 TC-N TC-1 TC-N
-
-TS - Test Suite，TC - Test Case
 A unit test using lcut is divided into three levels: logical test, test suite and test case. A logical test contains 
 several test suites and each test suite also contains several test cases. test case is the most basic and the smallest
 unit in this framework. And the three-level concept is helpful for you to organize your unit testing well.
