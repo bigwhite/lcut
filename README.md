@@ -56,6 +56,86 @@ Feature list
 For more information, please open and read the luct project wiki. lcut_user_guide and its Chinese version are ready 
 for you.
 
+A Typical Example
+-------
+    /* calculator_test.c */
+    #include "lcut.h"
+
+    extern int add(int a, int b);
+    extern int subtract(int a, int b);
+    extern int multiply(int a, int b);
+    extern int divide(int a, int b);
+
+    void tc_add(lcut_tc_t *tc, void *data) {
+        LCUT_INT_EQUAL(tc, 10, add(2, 8));
+        LCUT_INT_EQUAL(tc, -6, add(2, -8));
+        LCUT_INT_EQUAL(tc, 0, add(2, -2));
+        LCUT_INT_NEQUAL(tc, 1, add(2, -2));
+
+        LCUT_TRUE(tc, 0 == add(2, -2));
+        LCUT_ASSERT(tc, "2 + (-2) should equal to 0", 0 == add(2, -2));
+    }
+
+    void tc_subtract(lcut_tc_t *tc, void *data) {
+        LCUT_INT_EQUAL(tc, 6, subtract(8, 2));
+        LCUT_INT_EQUAL(tc, 10, subtract(2, -8));
+        LCUT_INT_EQUAL(tc, 0, subtract(2, 2));
+    }
+
+    void tc_multiply(lcut_tc_t *tc, void *data) {
+        LCUT_INT_EQUAL(tc, 16, multiply(8, 2));
+        LCUT_INT_EQUAL(tc, -16, multiply(2, -8));
+        LCUT_INT_EQUAL(tc, 0, multiply(0, 2));
+    }
+
+    void tc_divide(lcut_tc_t *tc, void *data) {
+        LCUT_INT_EQUAL(tc, 4, divide(8, 2));
+        LCUT_INT_EQUAL(tc, 0, divide(0, 8));
+        LCUT_INT_EQUAL(tc, 1, divide(2, 2));
+    }
+
+    int main() {
+        lcut_ts_t   *suite = NULL;
+        LCUT_TEST_BEGIN("a simple calculator test", NULL, NULL);
+
+        LCUT_TS_INIT(suite, "a simple calculator unit test suite", NULL, NULL);
+        LCUT_TC_ADD(suite, "add test case", tc_add, NULL, NULL, NULL);
+        LCUT_TC_ADD(suite, "subtract test case", tc_subtract, NULL, NULL, NULL);
+        LCUT_TC_ADD(suite, "multiply test case", tc_multiply, NULL, NULL, NULL);
+        LCUT_TC_ADD(suite, "divide test case", tc_divide, NULL, NULL, NULL);
+        LCUT_TS_ADD(suite);
+
+        LCUT_TEST_RUN();
+        LCUT_TEST_REPORT();
+        LCUT_TEST_END();
+
+        LCUT_TEST_RESULT();
+    }
+
+The result of the example could be:
+
+    *********************************************************
+         LCUT -- Lightweight C Unit Testing framework
+ 		                By Tony Bai
+    ********************************************************* 
+    Unit Test for 'a simple calculator test':
+
+	   Suite <a simple calculator unit test suite>: 
+		    Case 'add test case': Passed
+		    Case 'subtract test case': Passed
+		    Case 'multiply test case': Passed
+		    Case 'divide test case': Passed
+
+    Summary: 
+	    Total Suites: 1 
+	    Failed Suites: 0 
+	    Total Cases: 4 
+	    Failed Cases: 0 
+
+    ==========================
+	       GREEN BAR!
+    ==========================
+
 Build
 ------
  - Download the source code package
@@ -63,3 +143,7 @@ Build
  - configure->make->make install
  
 if you want to compile in 64-bit mode, pass "CPPFLAGS=-m64 LDFLAGS=-m64" to configure.
+
+User Guide
+-------------
+For more information, please open and read the project wiki. cbehave user guide is ready for you.
