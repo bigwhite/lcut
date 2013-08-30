@@ -32,10 +32,10 @@ static lcut_value_t* get_value(lcut_symbol_t *s);
 } while(0)
 
 #define FILL_IN_FAILED_REASON(tc, fname, fcname, lineno, reason_fmt, ...) do { \
-    sprintf((tc)->fname, "%s", (fname)); \
-    sprintf((tc)->fcname, "%s", (fcname)); \
+    snprintf((tc)->fname, LCUT_MAX_NAME_LEN, "%s", (fname));         \
+    snprintf((tc)->fcname, LCUT_MAX_NAME_LEN, "%s", (fcname));       \
     (tc)->line = (lineno); \
-    sprintf((tc)->reason, (reason_fmt), __VA_ARGS__); \
+    snprintf((tc)->reason, LCUT_MAX_STR_LEN, (reason_fmt), __VA_ARGS__); \
     (tc)->status = TEST_CASE_FAILURE; \
 } while (0)
                                   
@@ -391,7 +391,7 @@ void lcut_mock_obj_return(const char *symbol_name,
             exit(EXIT_FAILURE);
         }
         memset(s, 0, sizeof(*s));
-        strcpy(s->desc, symbol_name);
+        strncpy(s->desc, symbol_name, LCUT_MAX_NAME_LEN);
         s->obj_type = obj_type;
         APR_RING_INIT(&(s->value_list), lcut_value_t, link);
         APR_RING_INSERT_TAIL(&_symbol_list, s, lcut_symbol_t, link);
