@@ -1,5 +1,7 @@
 # Makefile.am
 
+AM_CPPFLAGS = -std=c99 -Wall -fno-strict-aliasing
+
 noinst_PROGRAMS = runtests calculator_test product_database_test string_test mock_test
 
 runtests_SOURCES = runtests.c
