@@ -152,4 +152,5 @@ a solution for this is execute "libtoolize -f" before "configure".
 
 User Guide
 -------------
-For more information, please open and read the project wiki. cbehave user guide is ready for you.
+For more information, please open and read the [lcut_user_guide](https://github.com/bigwhite/lcut/wiki/lcut-user-guide).And Chinese version is [here](https://github.com/bigwhite/lcut/wiki/lcut%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97).
+
